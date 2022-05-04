@@ -434,6 +434,6 @@ public class ConfigurationRepository {
         argsAsList.add("-nhnv");
         argsAsList.add("-a");
 
-        PasswordSetup.execute(argsAsList.toArray(new String[0]));
+        (new PasswordSetup()).execute(argsAsList.toArray(new String[0]));
     }
 }

@@ -101,23 +101,22 @@ import org.opensearch.security.support.ConfigConstants;
 import org.opensearch.security.support.ConfigHelper;
 import org.opensearch.security.support.PemKeyReader;
 
-public class PasswordSetup {
+public class PasswordSetup extends Command {
 
     private static final boolean CREATE_AS_LEGACY = Boolean.parseBoolean(System.getenv("OPENDISTRO_SECURITY_ADMIN_CREATE_AS_LEGACY"));
     private static final String OPENDISTRO_SECURITY_TS_PASS = "OPENDISTRO_SECURITY_TS_PASS";
     private static final String OPENDISTRO_SECURITY_KS_PASS = "OPENDISTRO_SECURITY_KS_PASS";
     private static final String OPENDISTRO_SECURITY_KEYPASS = "OPENDISTRO_SECURITY_KEYPASS";
-    public static void main(final String[] args) {
-        try{
-            final int returnCode = execute(args);
-            System.exit(returnCode);
-        } catch (Throwable e) {
-            System.out.println("Unexpected error");
-            System.exit(-1);
-        }
+
+    public String describe() {
+        return "Helps setting passwords for built-in users";
     }
 
-    public static int execute(final String[] args) throws Exception {
+    public void usage() {
+
+    }
+
+    public int execute(final String[] args) throws Exception {
 
         final HelpFormatter formatter = new HelpFormatter();
         Options options = new Options();
