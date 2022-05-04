@@ -237,6 +237,8 @@ public class ConfigConstants {
 
     public static final String SECURITY_FILTER_SECURITYINDEX_FROM_ALL_REQUESTS = "plugins.security.filter_securityindex_from_all_requests";
 
+    public static final String SECURITY_AUTOGENERATE_PASSWORDS = "plugins.security.autogenerate_passwords";
+
     // REST API
     public static final String SECURITY_RESTAPI_ROLES_ENABLED = "plugins.security.restapi.roles_enabled";
     public static final String SECURITY_RESTAPI_ENDPOINTS_DISABLED = "plugins.security.restapi.endpoints_disabled";

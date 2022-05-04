@@ -197,12 +197,14 @@ public class ConfigurationRepository {
 
                     LOGGER.info("Node '{}' initialized", clusterService.localNode().getName());
 
-                    try {
-                        generatePasswords();
-                        System.out.println("Passwords generated");
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        System.out.println("Threw an error while setting up passwords");
+                    if (Boolean.parseBoolean(settings.get(ConfigConstants.SECURITY_AUTOGENERATE_PASSWORDS, "false"))) {
+                        try {
+                            generatePasswords();
+                            System.out.println("Passwords generated");
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            System.out.println("Threw an error while setting up passwords");
+                        }
                     }
 
                 } catch (Exception e) {

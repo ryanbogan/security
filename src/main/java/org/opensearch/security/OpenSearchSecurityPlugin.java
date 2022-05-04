@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
 import java.security.AccessController;
 import java.security.MessageDigest;
@@ -371,6 +372,7 @@ public final class OpenSearchSecurityPlugin extends OpenSearchSecuritySSLPlugin 
             } else {
                 throw new RuntimeException("Unable to look for demo certificates");
             }
+        
 
         }
     }
@@ -848,6 +850,8 @@ public final class OpenSearchSecurityPlugin extends OpenSearchSecuritySSLPlugin 
         components.add(dcf);
 
 
+
+
         return components;
 
     }
@@ -983,6 +987,8 @@ public final class OpenSearchSecurityPlugin extends OpenSearchSecuritySSLPlugin 
             settings.add(Setting.simpleString(ConfigConstants.SECURITY_KERBEROS_ACCEPTOR_KEYTAB_FILEPATH, Property.NodeScope, Property.Filtered));
             settings.add(Setting.simpleString(ConfigConstants.SECURITY_KERBEROS_ACCEPTOR_PRINCIPAL, Property.NodeScope, Property.Filtered));
     
+            //Password Setup
+            settings.add(Setting.boolSetting(ConfigConstants.SECURITY_AUTOGENERATE_PASSWORDS, false, Property.NodeScope, Property.Filtered));
     
             // OpenSearch Security - REST API
             settings.add(Setting.listSetting(ConfigConstants.SECURITY_RESTAPI_ROLES_ENABLED, Collections.emptyList(), Function.identity(), Property.NodeScope)); //not filtered here

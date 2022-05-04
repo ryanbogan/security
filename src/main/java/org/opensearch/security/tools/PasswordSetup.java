@@ -416,6 +416,7 @@ public class PasswordSetup {
                 }
                 sc.close();
             }
+            System.out.println(ConfigConstants.OPENDISTRO_SECURITY_ACTION_NAME);
         } catch (Throwable e) {
             System.out.println(e);
             return -1;
